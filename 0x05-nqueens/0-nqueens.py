@@ -41,6 +41,7 @@ def isSafe(board, row, col):
 
     return True
 
+
 def solveNQueens(board, col, n):
     """
     Solves the N queens problem
