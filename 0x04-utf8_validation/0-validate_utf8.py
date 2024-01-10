@@ -21,9 +21,11 @@ def validUTF8(data):
             # Check if the byte is a single-byte character (leading 0)
             if (num >> 7) == 0:
                 byte_count = 0
+            
             # Check if the byte is a 2-byte character (leading 110)
             elif (num >> 5) == 0b110:
                 byte_count = 1
+            
             # Check if the byte is a 3-byte character (leading 1110)
             elif (num >> 4) == 0b1110:
                 byte_count = 2
