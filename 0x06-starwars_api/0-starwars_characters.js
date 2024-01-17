@@ -13,21 +13,21 @@ const movieId = process.argv[2];
 const url = `https://swapi-api.alx-tools.com/api/films/${movieId}/`;
 
 request(url, async function (error, response, body) {
-    if (error) {
-        console.log(error);
-    } else {
-        const characters = JSON.parse(body).characters;
-        for (const character of characters) {
-            const characterResponse = await new Promise((resolve, reject) => {
-                request(character, (error, response, html) => {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        resolve(JSON.parse(html).name);
-                    }
-                });
-            });
-            console.log(characterResponse);
-        }
+  if (error) {
+    console.log(error);
+  } else {
+    const characters = JSON.parse(body).characters;
+    for (const character of characters) {
+      const characterResponse = await new Promise((resolve, reject) => {
+        request(character, (error, response, html) => {
+          if (error) {
+            reject(error);
+          } else {
+            resolve(JSON.parse(html).name);
+          }
+        });
+      });
+      console.log(characterResponse);
     }
+  }
 });
